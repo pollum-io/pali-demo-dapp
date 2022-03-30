@@ -23,7 +23,7 @@ const FirstRow = () => (
 );
 
 const SecondRow = () => (
-  <div className="bg-bkg-3 md:rounded-md grid lg:grid-cols-3 gap-y-4 md:gap-y-0 md:gap-x-4 py-5 justify-center align-center w-full h-max">
+  <div className="bg-bkg-3 md:rounded-md grid lg:grid-cols-3 gap-y-4 lg:gap-y-0 md:gap-x-4 py-5 justify-center align-center w-full h-max">
     <BGCard title="SEND ETH">
       <div className="grid grid-rows-1 gap-y-3 rounded-md">
         <PrimaryButton text="SEND" type="button" />
@@ -93,7 +93,7 @@ const FourthRow = () => (
   </div>
 );
 export const Body = () => (
-  <div className="grid lg:grid-rows-4 md:gap-y-3 flex text-center w-full h-max">
+  <div className="grid md:gap-y-3 flex text-center w-full h-max">
     <FirstRow />
     <SecondRow />
 

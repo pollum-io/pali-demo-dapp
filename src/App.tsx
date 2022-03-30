@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Body } from './components/Body';
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 
 declare global {
   interface Window {
@@ -186,27 +187,7 @@ const App = () => {
         <Header />
         <Body />
       </div>
-      <div className="bottom-0 flex-row items-center bg-bkg-4 h-16 w-full px-2 md:px-8 xl:px-52 2xl:px-72 flex justify-between">
-        <div className=" flex items-center h-max flex-row gap-x-3">
-          <button className="rounded-full bg-brand-deepPink100 p-2 text-white text-xs md:text-sm">
-            TW
-          </button>
-          <button className="rounded-full bg-brand-deepPink100 p-2 text-white text-xs md:text-sm">
-            TW
-          </button>
-          <button className="rounded-full bg-brand-deepPink100 p-2 text-white text-xs md:text-sm">
-            TW
-          </button>
-        </div>
-        <div className=" flex items-center h-max flex-row gap-x-3">
-          <button className="rounded-full p-2 text-white text-xs md:text-sm">
-            DOWNLOAD
-          </button>
-          <button className="rounded-full p-2 text-white text-xs md:text-sm">
-            DOCS
-          </button>
-        </div>
-      </div>
+      <Footer />
       <div className="flex flex-wrap justify-center items-center gap-5">
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
