@@ -1,8 +1,6 @@
 import React from 'react';
 
-import logo from './assets/images/logo.svg';
-import { PrimaryButton } from './components/Button';
-import { FirstRow, SecondRow } from './components/Body';
+import { Body } from './components/Body';
 import { Header } from './components/Header';
 
 declare global {
@@ -184,91 +182,104 @@ const App = () => {
 
   return (
     <div>
-      <div className="bg-bkg-6 text-white md:px-8 lg:px-40 xl:px-72 ">
+      <div className="bg-bkg-6 text-white md:px-8 xl:px-52 2xl:px-72 h-max">
         <Header />
-        <div className="grid grid-rows-4 gap-y-3 flex text-center w-full">
-          <FirstRow />
-          <SecondRow />
-          <div className="bg-bkg-4">Validate and Get Token</div>
-          <div className="bg-bkg-3">Send Form</div>
-        </div>
-        <div>Imagem</div>
-        <div>Footer</div>
-
-        <div className="flex flex-wrap justify-center items-center gap-5">
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={connectWallet}
-          >
-            connect wallet
+        <Body />
+      </div>
+      <div className="bottom-0 flex-row items-center bg-bkg-4 h-16 w-full px-2 md:px-8 xl:px-52 2xl:px-72 flex justify-between">
+        <div className=" flex items-center h-max flex-row gap-x-3">
+          <button className="rounded-full bg-brand-deepPink100 p-2 text-white text-xs md:text-sm">
+            TW
           </button>
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={changeAccount}
-          >
-            change account
+          <button className="rounded-full bg-brand-deepPink100 p-2 text-white text-xs md:text-sm">
+            TW
           </button>
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={disconnectWallet}
-          >
-            disconnect wallet
-          </button>
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={getBalance}
-          >
-            get balance
-          </button>
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={getAccount}
-          >
-            get accounts
-          </button>
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={getChainId}
-          >
-            get chain id
-          </button>
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={getNetwork}
-          >
-            get network
-          </button>
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={getPublicKey}
-          >
-            get public key
-          </button>
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={signMessage}
-          >
-            sign message
-          </button>
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={sendTransaction}
-          >
-            send tx
-          </button>
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={getBlockNumber}
-          >
-            get block number
-          </button>
-          <button
-            className="w-72 p-2 border border-pink-300 rounded-md"
-            // onClick={estimateGas}
-          >
-            estimate gas
+          <button className="rounded-full bg-brand-deepPink100 p-2 text-white text-xs md:text-sm">
+            TW
           </button>
         </div>
+        <div className=" flex items-center h-max flex-row gap-x-3">
+          <button className="rounded-full p-2 text-white text-xs md:text-sm">
+            DOWNLOAD
+          </button>
+          <button className="rounded-full p-2 text-white text-xs md:text-sm">
+            DOCS
+          </button>
+        </div>
+      </div>
+      <div className="flex flex-wrap justify-center items-center gap-5">
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={connectWallet}
+        >
+          connect wallet
+        </button>
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={changeAccount}
+        >
+          change account
+        </button>
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={disconnectWallet}
+        >
+          disconnect wallet
+        </button>
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={getBalance}
+        >
+          get balance
+        </button>
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={getAccount}
+        >
+          get accounts
+        </button>
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={getChainId}
+        >
+          get chain id
+        </button>
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={getNetwork}
+        >
+          get network
+        </button>
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={getPublicKey}
+        >
+          get public key
+        </button>
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={signMessage}
+        >
+          sign message
+        </button>
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={sendTransaction}
+        >
+          send tx
+        </button>
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={getBlockNumber}
+        >
+          get block number
+        </button>
+        <button
+          className="w-72 p-2 border border-pink-300 rounded-md"
+          // onClick={estimateGas}
+        >
+          estimate gas
+        </button>
       </div>
     </div>
   );
