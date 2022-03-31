@@ -1,6 +1,7 @@
 import React from 'react';
 
 interface IButton {
+  className?: string;
   disabled?: boolean;
   id?: string;
   loading?: boolean;

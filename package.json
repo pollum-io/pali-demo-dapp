@@ -13,6 +13,7 @@
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "airbnb": "^0.0.2",
+    "antd": "^4.19.3",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.0",
     "react": "^17.0.2",

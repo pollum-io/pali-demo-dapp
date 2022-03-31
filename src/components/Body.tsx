@@ -4,6 +4,7 @@ import logo from '../assets/images/logo.svg';
 
 import { BGCard, Card } from './Card';
 import { PrimaryButton, Output } from './Button';
+import { SendForm } from './SendForm';
 
 const FirstRow = () => (
   <div className="bg-bkg-4 md:rounded-md grid grid-rows-2 gap-y-4 py-5 justify-center align-center w-full h-max">
@@ -78,17 +79,9 @@ const ThirdRow = () => (
 );
 
 const FourthRow = () => (
-  <div className="bg-bkg-3 md:rounded-md grid grid-rows-1 gap-y-4 py-5 justify-center align-center w-full h-max">
+  <div className="bg-bkg-3 md:rounded-md py-5 justify-center align-center w-full h-max">
     <BGCard title="SEND FORM">
-      <div className="flex flex-col gap-y-3 rounded-md">
-        <Output text="FROM" output="" />
-        <Output text="TO" output="" />
-        <Output text="AMOUNT" output="" />
-        <Output text="TYPE" output="" />
-        <Output text="GAS PRICE" output="" />
-        <Output text="DATA" output="" />
-        <PrimaryButton text="SUBMIT" type="submit" />
-      </div>
+      <SendForm />
     </BGCard>
   </div>
 );
