@@ -1,12 +1,19 @@
 import { Menu, Transition } from '@headlessui/react';
 import React, { Fragment } from 'react';
 
+import Chevron from '../assets/icons/ArrowDown.svg';
+
 export const MyDropdown = () => (
   <div className="w-full">
     <Menu as="div" className="relative inline-block text-left w-full">
       <div className="w-full">
-        <Menu.Button className="focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-1 rounded-full h-max w-full text-sm font-poppins text-gray-400 hover:text-white active:text-white">
-          Options
+        <Menu.Button className="focus:border focus:border-brand-royalblue bg-bkg-6 flex flex-row justify-between items-center text-left px-4 py-1 rounded-full h-max w-full text-sm font-poppins opacity-70 hover:opacity-100 text-white active:text-white">
+          <p>Options</p>
+          <img
+            src={Chevron}
+            alt=""
+            className="opacity-70 hover:opacity-100 w-4 h-4"
+          />
         </Menu.Button>
       </div>
       <Transition
