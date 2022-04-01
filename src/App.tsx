@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { Body } from './components/Body';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+
 declare global {
   interface Window {
     pali: Readonly<any>;
@@ -8,7 +12,7 @@ declare global {
 
 const App = () => {
   const paliProvider = window.pali;
-  const web3Provider = window.pali.getProvider('ethereum');
+  /* const web3Provider = window.pali.getProvider('ethereum');
 
   const connectWallet = async () => {
     if (paliProvider) {
@@ -175,82 +179,85 @@ const App = () => {
     }
 
     console.error('pali provider not found.');
-  };
+  }; */
 
   return (
     <div>
-      <p className="text-center my-8">Pali demo app</p>
-
+      <div className="bg-bkg-6 text-white md:px-8 xl:px-52 2xl:px-72 h-max">
+        <Header />
+        <Body />
+      </div>
+      <Footer />
       <div className="flex flex-wrap justify-center items-center gap-5">
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={connectWallet}
+          // onClick={connectWallet}
         >
           connect wallet
         </button>
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={changeAccount}
+          // onClick={changeAccount}
         >
           change account
         </button>
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={disconnectWallet}
+          // onClick={disconnectWallet}
         >
           disconnect wallet
         </button>
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={getBalance}
+          // onClick={getBalance}
         >
           get balance
         </button>
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={getAccount}
+          // onClick={getAccount}
         >
           get accounts
         </button>
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={getChainId}
+          // onClick={getChainId}
         >
           get chain id
         </button>
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={getNetwork}
+          // onClick={getNetwork}
         >
           get network
         </button>
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={getPublicKey}
+          // onClick={getPublicKey}
         >
           get public key
         </button>
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={signMessage}
+          // onClick={signMessage}
         >
           sign message
         </button>
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={sendTransaction}
+          // onClick={sendTransaction}
         >
           send tx
         </button>
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={getBlockNumber}
+          // onClick={getBlockNumber}
         >
           get block number
         </button>
         <button
           className="w-72 p-2 border border-pink-300 rounded-md"
-          onClick={estimateGas}
+          // onClick={estimateGas}
         >
           estimate gas
         </button>
