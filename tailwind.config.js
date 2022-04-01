@@ -5,6 +5,10 @@ module.exports = {
   theme: {
     extend: {
       colors: palette,
+      fontFamily: {
+        poppins: 'Poppins',
+        rubik: 'Rubik',
+      },
     },
   },
   plugins: [],

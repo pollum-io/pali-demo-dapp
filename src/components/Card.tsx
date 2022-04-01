@@ -7,7 +7,7 @@ interface ICard {
 
 export const Card: React.FC<ICard> = ({ children, title }) => (
   <div className="bg-bkg-2 p-4 w-72 mx-auto 3xl:w-80 md:max-w-md rounded-lg h-max">
-    <p className="w-full text-left pb-3">{title}</p>
+    <p className="w-full text-left pb-3 font-poppins">{title}</p>
     {children}
   </div>
 );
