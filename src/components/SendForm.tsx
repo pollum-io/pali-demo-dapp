@@ -36,7 +36,7 @@ export const SendForm = () => (
       <Input
         type="text"
         placeholder="From"
-        className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-1 rounded-full h-max"
+        className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
       />
     </Form.Item>
 
@@ -44,7 +44,7 @@ export const SendForm = () => (
       <Input
         type="text"
         placeholder="To"
-        className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-1 rounded-full h-max"
+        className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
       />
     </Form.Item>
     <div className="flex flex-row gap-x-4 justify-center">
@@ -71,7 +71,7 @@ export const SendForm = () => (
       <Input
         type="text"
         placeholder="Amount"
-        className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-1 rounded-full h-max"
+        className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
       />
     </Form.Item>
     <Form.Item name="type" className="w-full">
@@ -81,14 +81,14 @@ export const SendForm = () => (
       <Input
         type="text"
         placeholder="Gas Price"
-        className="text-white font-poppins text-sm disabled:opacity-75 focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-1 rounded-full h-max"
+        className="text-white font-poppins text-sm disabled:opacity-75 focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
       />
     </Form.Item>
     <Form.Item name="data" className="w-full">
       <Input
         type="text"
         placeholder="Data"
-        className="text-white font-poppins text-sm disabled:opacity-75 focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-1 rounded-full h-max"
+        className="text-white font-poppins text-sm disabled:opacity-75 focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
       />
     </Form.Item>
 

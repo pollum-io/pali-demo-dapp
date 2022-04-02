@@ -187,6 +187,7 @@ const App = () => {
         <Header />
         <Body />
       </div>
+
       <Footer />
     </div>
   );

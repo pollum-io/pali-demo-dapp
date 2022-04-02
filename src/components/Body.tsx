@@ -14,6 +14,7 @@ export const Body = () => (
 
     <ThirdRow />
     <FourthRow />
+
     <div className="flex flex-row items-center justify-center w-full py-4">
       <img src={logo} alt="" className="w-32 md:w-40" />
     </div>
