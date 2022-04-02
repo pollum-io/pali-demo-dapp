@@ -9,7 +9,7 @@ export const ThirdRow = () => (
       <div className="grid grid-rows-3 gap-y-3 rounded-full">
         <Input placeholder="Validate Address" />
         <PrimaryButton text="Validate" type="button" />
-        <Output output="{}" />
+        <Output output="true" />
       </div>
     </Card>
 
