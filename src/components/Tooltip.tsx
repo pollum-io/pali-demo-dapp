@@ -21,6 +21,7 @@ export const Tooltip: React.FC<ITooltip> = ({
   content ? (
     <Tippy
       animation="scale"
+      delay={[1500, 200]}
       placement={placement}
       appendTo={() => document.body}
       maxWidth="20rem"

@@ -6,7 +6,7 @@ export const Header = () => (
   <div className="flex flex-col md:flex-row justify-center py-10 md:justify-between align-center">
     <div className="flex flex-row items-center justify-center">
       <img src={logo} alt="" className="w-32 md:w-40" />
-      <div className="text-brand-royalblue font-poppins text text-2xl md:text-4xl font-bold tracking-wide leading-4">
+      <div className="cursor-default text-brand-royalblue font-poppins text text-2xl md:text-4xl font-bold tracking-wide leading-4">
         Pali Wallet
       </div>
     </div>

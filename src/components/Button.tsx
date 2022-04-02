@@ -36,7 +36,7 @@ interface IOutput {
 
 export const Output: React.FC<IOutput> = ({ output }) => (
   <div className="border border-bkg-4 bg-bkg-6 font-poppins text-left p-2 rounded-md outline-none">
-    <pre>{output}</pre>
+    <pre className="overflow-auto max-w-full">{output}</pre>
   </div>
 );
 
