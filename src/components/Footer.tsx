@@ -23,7 +23,7 @@ export const Footer = () => (
     </div>
 
     <div className="flex items-center h-max flex-row gap-4">
-      <div className="flex items-center h-max flex-row hover:text-white">
+      <div className="flex items-center h-max flex-row hover:opacity-90">
         <button className="rounded-full px-1 md:px-3 text-gray-100 font-poppins text-sm flex flex-row items-center">
           <img
             src={Download}
@@ -34,7 +34,7 @@ export const Footer = () => (
         </button>
       </div>
 
-      <div className="flex items-center h-max flex-row hover:text-white">
+      <div className="flex items-center h-max flex-row hover:opacity-90">
         <button className="rounded-full px-1 text-gray-100 font-poppins text-sm flex flex-row items-center">
           <img src={Document} alt="Docs Pali" className="mr-1.5 w-4 md:w-5" />
           DOCS
