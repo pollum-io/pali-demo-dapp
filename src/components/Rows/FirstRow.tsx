@@ -8,15 +8,18 @@ export const FirstRow = () => (
     <Card title="BASIC ACTIONS">
       <div className="grid grid-rows-3 gap-y-3 rounded-full">
         <PrimaryButton text="Connect" type="button" />
-        <PrimaryButton text="ETH_ACCOUNTS" type="button" />
-        <Output text="eth_accounts result" output="" />
+        <PrimaryButton text="Get account" type="button" />
+
+        <Output output="{}" />
       </div>
     </Card>
+
     <Card title="PERMISSIONS ACTIONS">
       <div className="grid grid-rows-3 gap-y-3 rounded-full">
-        <PrimaryButton text="Request Permissions" type="button" />
-        <PrimaryButton text="Get Permissions" type="button" />
-        <Output text="Permissions result:" output="" />
+        <PrimaryButton text="Request permissions" type="button" />
+        <PrimaryButton text="Get permissions" type="button" />
+
+        <Output output="{}" />
       </div>
     </Card>
   </div>

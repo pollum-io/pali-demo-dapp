@@ -31,14 +31,12 @@ export const PrimaryButton: React.FC<IButton> = ({
 );
 
 interface IOutput {
-  text: string;
-  output?: string | number;
+  output?: string | number | boolean | object;
 }
 
-export const Output: React.FC<IOutput> = ({ output, text }) => (
-  <div className="border border-bkg-4 bg-bkg-6 font-poppins text-left px-4 py-1 rounded-full h-max outline-none">
-    {text}
-    {output}
+export const Output: React.FC<IOutput> = ({ output }) => (
+  <div className="border border-bkg-4 bg-bkg-6 font-poppins text-left px-4 py-1 rounded-md h-max outline-none min-h-32">
+    <pre>{output}</pre>
   </div>
 );
 

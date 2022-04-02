@@ -8,24 +8,32 @@ export const SecondRow = () => (
     <Card title="SEND ETH">
       <div className="grid grid-rows-1 gap-y-3 rounded-full">
         <PrimaryButton text="Send" type="button" />
+
+        <Output output="{}" />
       </div>
     </Card>
+
     <Card title="SEND TOKENS">
       <div className="grid grid-rows-7 gap-y-3 rounded-full">
         <Input placeholder="Token:" />
-        <PrimaryButton text="Create Token" type="button" />
+
         <PrimaryButton text="Add token to wallet" type="button" />
         <PrimaryButton text="Transfer token" type="button" />
         <PrimaryButton text="Approve tokens" type="button" />
         <PrimaryButton text="Transfer token without GAS" type="button" />
         <PrimaryButton text="Approve token without GAS" type="button" />
+        <PrimaryButton text="Update token" type="button" />
+        <PrimaryButton text="Send token" type="button" />
+        <PrimaryButton text="Mint token" type="button" />
+        <PrimaryButton text="Create minted NFT" type="button" />
       </div>
     </Card>
+
     <Card title="ASSETS">
       <div className="grid grid-rows-3 gap-y-3 rounded-full">
         <PrimaryButton text="Mint" type="button" />
         <PrimaryButton text="Amount:" type="button" />
-        <Output text="Assets:" output="" />
+        <Output output="{}" />
       </div>
     </Card>
   </div>
