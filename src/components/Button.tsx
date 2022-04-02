@@ -35,7 +35,7 @@ interface IOutput {
 }
 
 export const Output: React.FC<IOutput> = ({ output }) => (
-  <div className="border border-bkg-4 bg-bkg-6 font-poppins text-left px-4 py-1 rounded-md h-max outline-none min-h-32">
+  <div className="border border-bkg-4 bg-bkg-6 font-poppins text-left p-2 rounded-md outline-none">
     <pre>{output}</pre>
   </div>
 );

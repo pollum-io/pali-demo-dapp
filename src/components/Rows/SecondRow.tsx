@@ -22,17 +22,19 @@ export const SecondRow = () => (
         <PrimaryButton text="Approve tokens" type="button" />
         <PrimaryButton text="Transfer token without GAS" type="button" />
         <PrimaryButton text="Approve token without GAS" type="button" />
-        <PrimaryButton text="Update token" type="button" />
-        <PrimaryButton text="Send token" type="button" />
-        <PrimaryButton text="Mint token" type="button" />
-        <PrimaryButton text="Create minted NFT" type="button" />
+
+        <Output output="{}" />
       </div>
     </Card>
 
     <Card title="ASSETS">
       <div className="grid grid-rows-3 gap-y-3 rounded-full">
         <PrimaryButton text="Mint" type="button" />
-        <PrimaryButton text="Amount:" type="button" />
+        <PrimaryButton text="Update asset" type="button" />
+        <PrimaryButton text="Send asset" type="button" />
+        <PrimaryButton text="Mint asset" type="button" />
+        <PrimaryButton text="Create minted NFT" type="button" />
+
         <Output output="{}" />
       </div>
     </Card>
