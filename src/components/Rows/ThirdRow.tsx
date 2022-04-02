@@ -5,7 +5,7 @@ import { PrimaryButton, Input, Output } from '../Button';
 
 export const ThirdRow = () => (
   <div className="bg-bkg-4 md:rounded-md grid lg:grid-cols-3 gap-y-4 py-5 justify-center align-center w-full h-max">
-    <Card title="VALIDATE ADDRESS">
+    <Card title="SYSWEB3 - VALIDATE ADDRESS">
       <div className="grid grid-rows-3 gap-y-3 rounded-full">
         <Input placeholder="Validate Address" />
         <PrimaryButton text="Validate" type="button" />
@@ -13,7 +13,7 @@ export const ThirdRow = () => (
       </div>
     </Card>
 
-    <Card title="GET TOKEN">
+    <Card title="SYSWEB3 - GET TOKEN">
       <div className="flex flex-col gap-y-3 rounded-full">
         <Input placeholder="Token ID:" />
         <PrimaryButton text="Get token data" type="button" />
@@ -21,7 +21,7 @@ export const ThirdRow = () => (
       </div>
     </Card>
 
-    <Card title="VALIDATE RPC URL">
+    <Card title="SYSWEB3 - VALIDATE RPC URL">
       <div className="flex flex-col gap-y-3 rounded-full">
         <Input placeholder="URL:" />
         <PrimaryButton text="Validate" type="button" />
