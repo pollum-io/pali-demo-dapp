@@ -20,8 +20,8 @@ export const SecondRow = () => (
         <PrimaryButton text="Add token to wallet" type="button" />
         <PrimaryButton text="Transfer token" type="button" />
         <PrimaryButton text="Approve tokens" type="button" />
-        <PrimaryButton text="Transfer token without GAS" type="button" />
-        <PrimaryButton text="Approve token without GAS" type="button" />
+        <PrimaryButton text="sign_typedData_v4" type="button" />
+
         <Output output="{}" />
       </div>
     </Card>
