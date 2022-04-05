@@ -4,7 +4,7 @@ import { Form, Input } from 'antd';
 import QuestionCircleOutlined from '../assets/icons/QuestionCircleOutlined.svg';
 
 import { SwitchToggle } from './Switch';
-import { PrimaryButton } from './Button';
+import { PrimaryButton } from './Buttons/Button';
 import { MyDropdown } from './Dropdown';
 import { Tooltip } from './Tooltip';
 
