@@ -183,7 +183,7 @@ const App = () => {
 
   return (
     <div>
-      <div className="bg-bkg-6 text-white md:px-8 xl:px-52 2xl:px-72 h-max">
+      <div className="bg-bkg-6 text-white md:px-8 xl:px-40 2xl:px-56 h-max">
         <Header />
         <Body />
       </div>
