@@ -49,15 +49,22 @@ export const SendForm = () => (
       />
     </Form.Item>
 
-    <div className="flex flex-row gap-x-4 justify-center">
-      <div className="flex flex-row gap-x-2 items-center">
+    <div className="flex flex-row gap-x-4 lg:gap-x-1.5 2xl:gap-x-4 justify-center">
+      <div className="flex flex-row gap-x-2 lg:gap-x-1.5 items-center">
+        <Tooltip content="Pali verifies your address to check if it is a valid SYS address. It's useful disable this verification if you want to send to specific type of addresses, like legacy. Only disable this verification if you are fully aware of what you are doing.">
+          <img
+            src={QuestionCircleOutlined}
+            alt=""
+            className="w-4 cursor-pointer"
+          />
+        </Tooltip>
         <p className="text-xs text-brand-royalblue font-poppins">
           Verify Address
         </p>
         <SwitchToggle />
       </div>
 
-      <div className="flex flex-row gap-x-2 items-center">
+      <div className="flex flex-row gap-x-2 lg:gap-x-1.5 items-center">
         <Tooltip content="Disable this option for Replace-by-fee (RBF) and enable for Z-DAG, a exclusive Syscoin feature. Z-DAG enables faster transactions but should not be used for high amounts.">
           <img
             src={QuestionCircleOutlined}
