@@ -2,15 +2,32 @@ import React from 'react';
 
 import { Card } from '../Card';
 import { PrimaryButton, Output } from '../Buttons/Button';
+import {
+  changeAccount,
+  connectWallet,
+  disconnectWallet,
+  getAccount,
+} from '../../Pali';
 
 export const FirstRow = () => (
   <div className="bg-bkg-3 md:rounded-md grid lg:grid-cols-3 gap-y-4 lg:gap-y-0 md:gap-x-4 py-5 justify-center align-center w-full h-max">
     <Card title="BASIC ACTIONS">
       <div className="grid grid-rows-3 gap-y-3 rounded-full">
-        <PrimaryButton text="Connect" type="button" />
-        <PrimaryButton text="Get account" type="button" />
-        <PrimaryButton text="Change account" type="button" />
-        <PrimaryButton text="Disconnect" type="button" />
+        <PrimaryButton text="Connect" type="button" onClick={connectWallet} />
+
+        <PrimaryButton text="Get account" type="button" onClick={getAccount} />
+
+        <PrimaryButton
+          text="Change account"
+          type="button"
+          onClick={changeAccount}
+        />
+
+        <PrimaryButton
+          text="Disconnect"
+          type="button"
+          onClick={disconnectWallet}
+        />
 
         <Output output="{}" />
       </div>
