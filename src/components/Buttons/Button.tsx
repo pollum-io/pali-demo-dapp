@@ -7,7 +7,7 @@ interface IButton {
   loading?: boolean;
   onClick?: () => any;
   text: string;
-  type: 'button' | 'submit' | 'reset' | undefined;
+  type?: 'button' | 'submit' | 'reset';
   width?: string;
 }
 
@@ -17,7 +17,7 @@ export const PrimaryButton: React.FC<IButton> = ({
   loading = false,
   onClick,
   text,
-  type = 'submit',
+  type = 'button',
 }) => (
   <button
     className="bg-bkg-4 py-1.5 rounded-full cursor-pointer h-max font-poppins hover:bg-brand-royalblue"
