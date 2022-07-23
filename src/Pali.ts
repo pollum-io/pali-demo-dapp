@@ -12,8 +12,8 @@ if (isInstalled()) {
 
 //* Default methods
 export const isConnected = async () => pali.isConnected();
-export const connectWallet = async () => pali.enable();
-export const disconnectWallet = async () => pali.disable();
+export const connect = async () => pali.enable();
+export const disconnect = async () => pali.disable();
 
 //* Requests
 export const changeAccount = async () =>
