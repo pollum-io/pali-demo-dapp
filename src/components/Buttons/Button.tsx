@@ -7,7 +7,7 @@ interface IButton {
   loading?: boolean;
   onClick?: () => any;
   text: string;
-  type: 'button' | 'submit' | 'reset' | undefined;
+  type?: 'button' | 'submit' | 'reset';
   width?: string;
 }
 
@@ -17,7 +17,7 @@ export const PrimaryButton: React.FC<IButton> = ({
   loading = false,
   onClick,
   text,
-  type = 'submit',
+  type = 'button',
 }) => (
   <button
     className="bg-bkg-4 py-1.5 rounded-full cursor-pointer h-max font-poppins hover:bg-brand-royalblue"
@@ -35,8 +35,8 @@ interface IOutput {
 }
 
 export const Output: React.FC<IOutput> = ({ output }) => (
-  <div className="border border-bkg-4 bg-bkg-6 font-poppins text-left p-2 rounded-md outline-none">
-    <pre className="overflow-auto max-w-full">{output}</pre>
+  <div className="border border-bkg-4 bg-bkg-6 font-poppins text-left p-2 rounded-md outline-none overflow-hidden">
+    <pre>{output}</pre>
   </div>
 );
 

@@ -1,20 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Card } from '../Card';
 import { PrimaryButton, Output } from '../Buttons/Button';
+import { changeAccount, connect, disconnect, getAccount } from '../../Pali';
 
 export const FirstRow = () => (
   <div className="bg-bkg-3 md:rounded-md grid lg:grid-cols-3 gap-y-4 lg:gap-y-0 md:gap-x-4 py-5 justify-center align-center w-full h-max">
-    <Card title="BASIC ACTIONS">
-      <div className="grid grid-rows-3 gap-y-3 rounded-full">
-        <PrimaryButton text="Connect" type="button" />
-        <PrimaryButton text="Get account" type="button" />
-        <PrimaryButton text="Change account" type="button" />
-        <PrimaryButton text="Disconnect" type="button" />
-
-        <Output output="{}" />
-      </div>
-    </Card>
+    <BasicActionsCard />
 
     <Card title="PERMISSIONS ACTIONS">
       <div className="grid grid-rows-3 gap-y-3 rounded-full">
@@ -35,3 +27,40 @@ export const FirstRow = () => (
     </Card>
   </div>
 );
+
+const BasicActionsCard = () => {
+  const [output, setOutput] = useState('');
+
+  const handleExecution = async (fn: () => any) => {
+    const data = await fn();
+    setOutput(JSON.stringify(data));
+  };
+
+  return (
+    <Card title="BASIC ACTIONS">
+      <div className="grid grid-rows-3 gap-y-3 rounded-full">
+        <PrimaryButton
+          text="Connect"
+          onClick={() => handleExecution(connect)}
+        />
+
+        <PrimaryButton
+          text="Get account"
+          onClick={() => handleExecution(getAccount)}
+        />
+
+        <PrimaryButton
+          text="Change account"
+          onClick={() => handleExecution(changeAccount)}
+        />
+
+        <PrimaryButton
+          text="Disconnect"
+          onClick={() => handleExecution(disconnect)}
+        />
+
+        <Output output={output || ' '} />
+      </div>
+    </Card>
+  );
+};
