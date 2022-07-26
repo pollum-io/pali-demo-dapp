@@ -16,8 +16,9 @@ export const connect = async () => pali.enable();
 export const disconnect = async () => pali.disable();
 
 //* Requests
-export const changeAccount = async () =>
-  pali.request({ method: 'wallet_changeAccount' });
+export const request = async (method: string, args?: any[]) =>
+  pali.request({ method, args });
 
-export const getAccount = async () =>
-  pali.request({ method: 'sys_getAccount' });
+export const changeAccount = () => request('wallet_changeAccount');
+
+export const getAccount = () => request('sys_getAccount');
