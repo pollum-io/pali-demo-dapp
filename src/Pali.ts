@@ -1,3 +1,5 @@
+import { jsonPsbt, tokenCreationMock } from './components/mocks';
+
 const { pali } = window;
 
 export const isInstalled = () => pali !== undefined;
@@ -21,3 +23,31 @@ export const changeAccount = async () =>
 
 export const getAccount = async () =>
   pali.request({ method: 'sys_getAccount' });
+
+//* Transactions
+export const confirmMintNFT = async (data: any) => {
+  const request = await pali.request({
+    method: 'sys_confirmMintNFT',
+    args: data,
+  });
+
+  console.log({ request });
+};
+
+export const signTransaction = async () => {
+  const request = await pali.request({
+    method: 'sys_signTransaction',
+    args: [jsonPsbt, false, false],
+  });
+
+  console.log({ request });
+};
+
+export const confirmTokenCreation = async () => {
+  const request = await pali.request({
+    method: 'sys_confirmTokenCreation',
+    args: [tokenCreationMock],
+  });
+
+  console.log({ request });
+};

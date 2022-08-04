@@ -4,6 +4,9 @@
   "private": false,
   "dependencies": {
     "@headlessui/react": "^1.5.0",
+    "@pollum-io/sysweb3-keyring": "^1.0.360",
+    "@pollum-io/sysweb3-network": "^1.0.54",
+    "@pollum-io/sysweb3-utils": "^1.1.190",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
