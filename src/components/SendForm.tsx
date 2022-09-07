@@ -17,7 +17,7 @@ const onSubmit = (data: any) => {
     // sender: '',
   };
 
-  request('sys_sendTransaction', [tx]);
+  request('sys_send', [tx]);
 };
 
 export const SendForm = () => {
