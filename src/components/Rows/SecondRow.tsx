@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Card } from '../Card';
 import { PrimaryButton, Input, Output } from '../Buttons/Button';
@@ -6,12 +6,16 @@ import { request } from '../../Pali';
 import { data } from '../../data';
 
 export const SecondRow = () => {
+  const [output, setOutput] = useState('');
+
   const onSubmit = (type: string) => {
     const tx = data[type];
 
     const method = `sys_${type}`;
 
-    request(method, [tx]);
+    request(method, [tx]).then((response) =>
+      setOutput(JSON.stringify(response))
+    );
   };
 
   return (
@@ -42,33 +46,38 @@ export const SecondRow = () => {
             text="Create asset"
             type="button"
           />
+
           <PrimaryButton
             onClick={() => onSubmit('mintToken')}
             text="Mint"
             type="button"
           />
+
           <PrimaryButton
             onClick={() => onSubmit('updateToken')}
             text="Update asset"
             type="button"
           />
+
           <PrimaryButton
             onClick={() => onSubmit('send')}
             text="Send asset"
             type="button"
           />
+
           <PrimaryButton
             onClick={() => onSubmit('mintNft')}
             text="Mint NFT"
             type="button"
           />
+
           <PrimaryButton
             onClick={() => onSubmit('createNft')}
             text="Create minted NFT"
             type="button"
           />
 
-          <Output output="{}" />
+          <Output output={output || ' '} />
         </div>
       </Card>
     </div>

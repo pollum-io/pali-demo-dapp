@@ -1,6 +1,6 @@
 const commonFields = {
   advanced: null, // optional
-  description: 'pali demo dapp token creation test #1', // optional
+  description: 'pali demo dapp token creation test 1', // optional
 };
 
 export const data: { [type: string]: any } = {
@@ -13,29 +13,29 @@ export const data: { [type: string]: any } = {
     token: '', // token guid
   },
   createToken: {
-    ...commonFields,
-    maxsupply: 200000,
+    maxsupply: 100,
     precision: 8,
-    receiver: null, // optional, if null it is set to connected account address,
-    symbol: 'pali#1', // max 8 characters
+    receiver: '', // optional, if null it is set to connected account address,
+    symbol: 'pali1', // max 8 characters
     initialSupply: 0, // optional
+    ...commonFields,
   },
   updateToken: {
-    ...commonFields,
     assetGuid: '',
     assetWhiteList: '', // optional
     capabilityflags: '127',
     contract: '', // optional
+    ...commonFields,
   },
   mintToken: {
     amount: 1,
     assetGuid: '',
   },
   createNft: {
-    description: 'pali demo dapp nft creation test #1',
+    description: 'pali demo dapp nft creation test 1',
     precision: 8,
     receivingAddress: '',
-    symbol: 'nft#1',
+    symbol: 'nft1',
   },
   mintNft: {
     amount: 1,
