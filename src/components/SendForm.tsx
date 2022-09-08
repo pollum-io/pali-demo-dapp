@@ -17,7 +17,7 @@ const onSubmit = (data: any) => {
     // sender: '',
   };
 
-  request('sys_sendTransaction', [tx]);
+  request('sys_send', [tx]);
 };
 
 export const SendForm = () => {
@@ -42,7 +42,7 @@ export const SendForm = () => {
         <Input
           type="text"
           placeholder="From"
-          className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
+          className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
         />
       </Form.Item>
 
@@ -50,7 +50,7 @@ export const SendForm = () => {
         <Input
           type="text"
           placeholder="To"
-          className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
+          className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
         />
       </Form.Item>
 
@@ -88,7 +88,7 @@ export const SendForm = () => {
         <Input
           type="text"
           placeholder="Amount"
-          className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
+          className="text-white font-poppins text-sm focus:border-fields-input-borderfocus w-full outline-none focus:border bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
         />
       </Form.Item>
 
@@ -100,7 +100,7 @@ export const SendForm = () => {
         <Input
           type="text"
           placeholder="Fee | Gas Price"
-          className="text-white font-poppins text-sm disabled:opacity-75 focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
+          className="text-white font-poppins text-sm disabled:opacity-75 focus:border-fields-input-borderfocus w-full outline-none focus:border bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
         />
       </Form.Item>
 
@@ -108,7 +108,7 @@ export const SendForm = () => {
         <Input
           type="text"
           placeholder="Data"
-          className="text-white font-poppins text-sm disabled:opacity-75 focus:border-fields-input-borderfocus w-full outline-none focus:border focus:border-brand-royalblue bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
+          className="text-white font-poppins text-sm disabled:opacity-75 focus:border-fields-input-borderfocus w-full outline-none focus:border bg-bkg-6 text-left px-4 py-2 border border-transparent rounded-full h-max"
         />
       </Form.Item>
 
