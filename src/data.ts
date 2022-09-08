@@ -29,7 +29,7 @@ export const data: { [type: string]: any } = {
   },
   mintToken: {
     amount: 1,
-    assetGuid: '',
+    assetGuid: '2028120594',
   },
   createNft: {
     description: 'pali demo dapp nft creation test 1',
