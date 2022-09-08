@@ -40,7 +40,7 @@ export const data: { [type: string]: any } = {
   },
   mintNft: {
     amount: 1,
-    assetGuid: '',
+    assetGuid: '897866765',
   },
   sign: null,
   signAndSend: null,
