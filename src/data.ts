@@ -1,6 +1,5 @@
 const commonFields = {
   advanced: null, // optional
-  description: 'pali demo dapp token creation test 1', // optional
 };
 
 export const data: { [type: string]: any } = {
@@ -18,13 +17,15 @@ export const data: { [type: string]: any } = {
     receiver: '', // optional, if null it is set to connected account address,
     symbol: 'pali1', // max 8 characters
     initialSupply: 0, // optional
+    description: 'pali demo dapp token create test 1', // optional
     ...commonFields,
   },
   updateToken: {
-    assetGuid: '',
+    assetGuid: '2028120594',
     assetWhiteList: '', // optional
     capabilityflags: '127',
     contract: '', // optional
+    description: 'pali demo dapp token update test 1', // optional
     ...commonFields,
   },
   mintToken: {
