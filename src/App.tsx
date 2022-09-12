@@ -7,6 +7,7 @@ import { Footer } from './components/Footer';
 declare global {
   interface Window {
     pali: Readonly<any>;
+    ethereum: Readonly<any>;
   }
 }
 
