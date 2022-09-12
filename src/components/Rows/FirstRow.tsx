@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 import { Card } from '../Card';
-import { PrimaryButton, Output } from '../Buttons/Button';
+import { Output } from '../Output';
+import { PrimaryButton } from '../Buttons/Button';
 import {
   changeAccount,
   connect,
@@ -20,7 +21,7 @@ export const FirstRow = () => {
 
     // note: check the data object first to be aware of why this method would not work if called this way
     request(method, [psbt]).then((response) => {
-      setOutput(response);
+      setOutput(JSON.stringify(response));
     });
   };
 

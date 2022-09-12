@@ -30,16 +30,6 @@ export const PrimaryButton: React.FC<IButton> = ({
   </button>
 );
 
-interface IOutput {
-  output?: string | number | boolean | object;
-}
-
-export const Output: React.FC<IOutput> = ({ output }) => (
-  <div className="border border-bkg-4 bg-bkg-6 font-poppins text-left p-2 rounded-md outline-none overflow-hidden">
-    <pre>{output}</pre>
-  </div>
-);
-
 interface IInput {
   placeholder: string;
   disabled?: boolean;
