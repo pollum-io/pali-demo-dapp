@@ -36,7 +36,7 @@ export const FirstRow = () => {
             text="Sign PSBT"
             type="button"
           />
-          <PrimaryButton
+          <PrimaryButton 
             onClick={() => onSubmit('getSignedPsbt')}
             text="Get signed PSBT"
             type="button"

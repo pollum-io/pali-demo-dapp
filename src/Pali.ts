@@ -23,5 +23,7 @@ export const changeAccount = () => request('wallet_changeAccount');
 
 export const getAccount = () => request('sys_getAccount');
 
-export const signTypedDataV4 = (params: [string, any]) =>
+export const signTypedDataV4 = (params: any) =>
   request('eth_signTypedData_v4', [params]);
+
+export const getNetwork = () => request('wallet_getNetwork');

@@ -6,13 +6,13 @@ export const data: { [type: string]: any } = {
   send: {
     sender: '',
     amount: 0.00001,
-    receivingAddress: '',
+    receivingAddress: 'sys1qukdepxwlct2ekce4sak6z4ez93xq7huvve3feg',
     isToken: false,
     rbf: true,
     token: '', // token guid
   },
   createToken: {
-    maxsupply: 100,
+    maxsupply: 1,
     precision: 8,
     receiver: '', // optional, if null it is set to connected account address,
     symbol: 'pali1', // max 8 characters

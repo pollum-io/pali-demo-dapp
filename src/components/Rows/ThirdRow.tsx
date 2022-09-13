@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Card } from '../Card';
-import { PrimaryButton, Input, Output } from '../Buttons/Button';
+import { Output } from '../Output';
+import { PrimaryButton, Input } from '../Buttons/Button';
 
 export const ThirdRow = () => (
   <div className="bg-bkg-4 md:rounded-md grid lg:grid-cols-3 gap-y-4 py-5 justify-center align-center w-full h-max">
