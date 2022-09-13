@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Form, Input } from 'antd';
 
 import QuestionCircleOutlined from '../assets/icons/QuestionCircleOutlined.svg';
-import { request } from '../Pali';
+import { request } from '../pali';
 
 import { SwitchToggle } from './Switch';
 import { PrimaryButton } from './Buttons/Button';

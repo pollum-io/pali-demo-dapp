@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Card } from '../Card';
 import { PrimaryButton, Input, Output } from '../Buttons/Button';
-import { request } from '../../Pali';
+import { request } from '../../pali';
 import { data } from '../../data';
 
 export const SecondRow = () => {
