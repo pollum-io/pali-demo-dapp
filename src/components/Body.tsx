@@ -8,7 +8,7 @@ import { ThirdRow } from './Rows/ThirdRow';
 import { FourthRow } from './Rows/FourthRow';
 
 export const Body = () => (
-  <div className="grid md:gap-y-3 flex text-center w-full h-max">
+  <div className="grid md:gap-y-3 text-center w-full h-max">
     <FirstRow />
     <SecondRow />
 
@@ -20,3 +20,6 @@ export const Body = () => (
     </div>
   </div>
 );
+// request('eth_signTypedData_v4', []).then((res: any) => {
+//   console.log({ res });
+// });

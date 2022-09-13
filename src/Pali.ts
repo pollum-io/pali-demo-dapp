@@ -12,7 +12,7 @@ if (isInstalled()) {
 
 //* Default methods
 export const isConnected = async () => ethereum.isConnected();
-export const connect = async () => ethereum.enable(4);
+export const connect = async () => ethereum.enable();
 export const disconnect = async () => ethereum.disable();
 
 //* Requests
@@ -23,5 +23,5 @@ export const changeAccount = () => request('wallet_changeAccount');
 
 export const getAccount = () => request('sys_getAccount');
 
-export const signTypedDataV4 = (params: [string, any], from: string) =>
-  request('eth_signTypedData_v4', [params, from]);
+export const signTypedDataV4 = (params: [string, any]) =>
+  request('eth_signTypedData_v4', [params]);

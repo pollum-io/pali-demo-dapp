@@ -1,79 +1,58 @@
 import React, { useState } from 'react';
 
 import { Card } from '../Card';
-import { PrimaryButton, Output } from '../Buttons/Button';
+import { Output } from '../Output';
+import { PrimaryButton } from '../Buttons/Button';
 import {
   changeAccount,
   connect,
   disconnect,
   getAccount,
+  request,
 } from '../../pali';
+import { data } from '../../data';
 
-import typedDataV4 from './typedDataV4';
+export const FirstRow = () => {
+  const [output, setOutput] = useState('');
 
-declare global {
-  interface Window {
-    sigUtil: any;
-  }
-}
+  const onSubmit = async (type: string) => {
+    const message = data[type];
+    const method = `sys_${type}`;
 
-const onSign = async () => {
-  const { address } = await getAccount();
+    // note: check the data object first to be aware of why this method would not work if called this way
+    request(method, [message]).then((response) => {
+      setOutput(JSON.stringify(response));
+    });
+  };
 
-  const from = address;
+  return (
+    <div className="bg-bkg-3 md:rounded-md grid lg:grid-cols-3 gap-y-4 lg:gap-y-0 md:gap-x-4 py-5 justify-center align-center w-full h-max">
+      <BasicActionsCard />
 
-  const msgParams = JSON.stringify(typedDataV4);
+      <Card title="SIGN ACTIONS">
+        <div className="grid grid-rows-3 gap-y-3 rounded-full">
+          <PrimaryButton
+            onClick={() => onSubmit('signAndSend')}
+            text="Sign PSBT"
+            type="button"
+          />
+          <PrimaryButton
+            onClick={() => onSubmit('getSignedPsbt')}
+            text="Get signed PSBT"
+            type="button"
+          />
+          <PrimaryButton
+            onClick={() => onSubmit('signTypedDataV4')}
+            text="Sign Typed Data V4"
+            type="button"
+          />
 
-  const params = [from, msgParams];
-  const method = 'eth_signTypedData_v4';
-
-  return window.ethereum.request(
-    {
-      method,
-      params,
-      from,
-    },
-    (err: any, result: any) => {
-      if (err) return console.dir(err);
-      if (result.error) {
-        alert(result.error.message);
-      }
-      if (result.error) return console.error('ERROR', result);
-      console.log(`TYPED SIGNED:${JSON.stringify(result.result)}`);
-
-      // const recovered = sigUtil.recoverTypedSignature_v4({
-      //   data: JSON.parse(msgParams),
-      //   sig: result.result,
-      // });
-
-      // if (
-      //   ethUtil.toChecksumAddress(recovered) ===
-      //   ethUtil.toChecksumAddress(from)
-      // ) {
-      //   alert(`Successfully recovered signer as ${from}`);
-      // } else {
-      //   alert(`Failed to verify signer when comparing ${result} to ${from}`);
-      // }
-    }
+          <Output output={output || ' '} />
+        </div>
+      </Card>
+    </div>
   );
 };
-
-export const FirstRow = () => (
-  <div className="bg-bkg-3 md:rounded-md grid lg:grid-cols-3 gap-y-4 lg:gap-y-0 md:gap-x-4 py-5 justify-center align-center w-full h-max">
-    <BasicActionsCard />
-
-    <Card title="SIGN ACTIONS">
-      <div className="grid grid-rows-3 gap-y-3 rounded-full">
-        <PrimaryButton text="Sign PSBT" type="button" />
-        <PrimaryButton text="Get signed PSBT" type="button" />
-        <PrimaryButton text="Sign Typed Data V4" onClick={onSign} />
-
-        <Output output="{}" />
-      </div>
-    </Card>
-  </div>
-);
-
 
 const BasicActionsCard = () => {
   const [output, setOutput] = useState('');
