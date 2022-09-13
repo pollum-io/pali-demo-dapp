@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 import { Card } from '../Card';
-import { PrimaryButton, Input, Output } from '../Buttons/Button';
+import { Output } from '../Output';
+import { PrimaryButton, Input } from '../Buttons/Button';
 import { request } from '../../Pali';
 import { data } from '../../data';
 
@@ -28,7 +29,7 @@ export const SecondRow = () => {
         </div>
       </Card>
 
-      <Card title="SEND TOKENS">
+      <Card title="TOKENS">
         <div className="grid grid-rows-7 gap-y-3 rounded-full">
           <Input placeholder="Token:" />
 
@@ -39,7 +40,7 @@ export const SecondRow = () => {
         </div>
       </Card>
 
-      <Card title="ASSETS">
+      <Card title="SYSCOIN CORE - ASSETS">
         <div className="grid grid-rows-3 gap-y-3 rounded-full">
           <PrimaryButton
             onClick={() => onSubmit('createToken')}

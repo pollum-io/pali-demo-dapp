@@ -22,3 +22,5 @@ export const request = async (method: string, args?: any[]) =>
 export const changeAccount = () => request('wallet_changeAccount');
 
 export const getAccount = () => request('sys_getAccount');
+
+export const getNetwork = () => request('sys_getNetwork');
