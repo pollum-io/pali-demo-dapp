@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { usePaliMethods } from '../contexts/requests';
 
 import logo from '../assets/images/logo.svg';
 import { useProviderContext } from '../contexts/provider';
 
 export const Header = () => {
-  const [label, setLabel] = useState();
-
   const { setPrefix, prefix } = useProviderContext();
   const { state: { account, network } } = usePaliMethods();
 
@@ -24,9 +22,7 @@ export const Header = () => {
   const stored = window.localStorage.getItem('pali_provider');
 
   useEffect(() => {
-    if (stored !== options[prefix]) setPrefix(stored)
-    
-    setLabel(options[prefix].label);
+    if (stored !== options[prefix]) setPrefix(stored);
   }, []);
 
   return (
@@ -47,10 +43,8 @@ export const Header = () => {
         </div>
 
         <select name="provider" onChange={(event) => setPrefix(event.target.value)} className="cursor-pointer w-64 bg-alert-darkwarning px-4 py-1 rounded-full text-sm font-poppins flex items-center">
-          <label htmlFor="provider">{label}</label>
-
           {Object.values(options).map((option) => (
-            <option key={option.value} defaultValue={stored} value={option.value}>{option.label}</option>
+            <option key={option.value} defaultValue={prefix} value={option.value}>{option.label}</option>
           ))}
         </select>
       </div>

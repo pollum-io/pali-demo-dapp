@@ -29,12 +29,12 @@ export const PaliMethodsProvider = ({ children }: { children: any; }) => {
   }
 
   //* Default methods
-  const isConnected = async () => provider.isConnected();
-  const connect = async () => provider.enable();
-  const disconnect = async () => provider.disable();
+  const isConnected = () => provider.isConnected();
+  const connect = () => provider.enable();
+  const disconnect = () => provider.disable();
 
   //* Requests
-  const request = async (method: string, args?: any[]) =>
+  const request = (method: string, args?: any[]) =>
     provider.request({ method, args });
 
   const changeAccount = () => request('wallet_changeAccount');
