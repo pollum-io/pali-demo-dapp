@@ -20,6 +20,3 @@ export const Body = () => (
     </div>
   </div>
 );
-// request('eth_signTypedData_v4', []).then((res: any) => {
-//   console.log({ res });
-// });

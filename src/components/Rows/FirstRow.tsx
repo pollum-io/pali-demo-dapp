@@ -3,24 +3,21 @@ import React, { useState } from 'react';
 import { Card } from '../Card';
 import { Output } from '../Output';
 import { PrimaryButton } from '../Buttons/Button';
-import {
-  changeAccount,
-  connect,
-  disconnect,
-  getAccount,
-  request,
-} from '../../pali';
 import { data } from '../../data';
-import { useWalletContext } from '../../contexts/wallet';
+import { useProviderContext } from '../../contexts/provider';
+import { usePaliMethods } from '../../contexts/requests';
 
 export const FirstRow = () => {
-  const { providerPrefix } = useWalletContext();
+  const { 
+    request,
+   } = usePaliMethods();
+  const { state: { prefix } } = useProviderContext();
 
   const [output, setOutput] = useState('');
 
   const onSubmit = async (type: string) => {
     const message = data[type];
-    const method = `${providerPrefix}_${type}`;
+    const method = `${prefix}_${type}`;
 
     // note: check the data object first to be aware of why this method would not work if called this way
     request(method, [message]).then((response) => {
@@ -58,6 +55,12 @@ export const FirstRow = () => {
 };
 
 const BasicActionsCard = () => {
+  const {
+    changeAccount,
+    connect,
+    disconnect,
+    getAccount,
+  } = usePaliMethods();
   const [output, setOutput] = useState('');
 
   const handleExecution = async (fn: () => any) => {

@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { truncate } from '../utils';
+import React from 'react';
 
 import logo from '../assets/images/logo.svg';
-import { useWalletContext } from '../contexts/wallet';
+import { useProviderContext } from '../contexts/provider';
 
 export const Header = () => {
-  const { providerPrefix, setProvider, account, network } = useWalletContext();
+  const { setPrefix, state } = useProviderContext();
+
+  const { account, network } = state;
 
   const options = [
     {
-      label: 'Pali - Syscoin',
+      label: 'Provider - Syscoin',
       value: 'sys',
     },
     {
-      label: 'Pali - Ethereum',
+      label: 'Provider - Ethereum',
       value: 'eth',
     }
   ];
@@ -29,20 +30,15 @@ export const Header = () => {
 
       <div className="grid gap-y-2 py-4 justify-center">
         <div className="w-64 bg-brand-deepPink100 px-4 py-1 rounded-full text-sm font-poppins flex items-center">
-          Account: {truncate(account.address || '', 14) }
+          Connected: {account.label}
         </div>
         <div className="w-64 bg-brand-royalblue px-4 py-1 rounded-full text-sm font-poppins flex items-center">
           Chain ID: {network.chainId || ''}
         </div>
 
-        <select onChange={(event) => {
-          console.log({ event })
-          setProvider(event.target.value)
-
-          console.log({ tg: event.target.value })
-        }} className="w-64 bg-alert-darkwarning px-4 py-1 rounded-full text-sm font-poppins flex items-center">
+        <select onChange={(event) => setPrefix(event.target.value)} className="cursor-pointer w-64 bg-alert-darkwarning px-4 py-1 rounded-full text-sm font-poppins flex items-center">
           {options.map((option) => (
-            <option key={option.value} defaultValue="sys" selected={providerPrefix === option.value} value={option.value}>{option.label}</option>
+            <option key={option.value} defaultValue="sys" value={option.value}>{option.label}</option>
           ))}
         </select>
       </div>

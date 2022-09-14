@@ -1,14 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
-import { WalletProvider } from './contexts/wallet';
+import { PaliWalletProvider } from './contexts/provider';
+import { PaliMethodsProvider } from './contexts/requests';
 import './css/style.css';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+
+root.render(
   <React.StrictMode>
-    <WalletProvider>
-      <App />
-    </WalletProvider>
+    <PaliWalletProvider>
+      <PaliMethodsProvider>
+        <App />
+      </PaliMethodsProvider>
+    </PaliWalletProvider>
   </React.StrictMode>,
-  document.getElementById('root')
 );

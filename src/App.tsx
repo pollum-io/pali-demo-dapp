@@ -8,7 +8,6 @@ declare global {
   interface Window {
     pali: Readonly<any>;
     ethereum: Readonly<any>;
-    prefix: Readonly<string>;
     provider: Readonly<any>;
   }
 }

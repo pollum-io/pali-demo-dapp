@@ -3,19 +3,20 @@ import React, { useState } from 'react';
 import { Card } from '../Card';
 import { Output } from '../Output';
 import { PrimaryButton, Input } from '../Buttons/Button';
-import { request } from '../../pali';
 import { data } from '../../data';
-import { useWalletContext } from '../../contexts/wallet';
+import { useProviderContext } from '../../contexts/provider';
+import { usePaliMethods } from '../../contexts/requests';
 
 export const SecondRow = () => {
-  const { providerPrefix } = useWalletContext();
+  const { state: { prefix } } = useProviderContext();
+  const { request } = usePaliMethods();
   
   const [output, setOutput] = useState('');
 
   const onSubmit = (type: string) => {
     const tx = data[type];
 
-    const method = `${providerPrefix}_${type}`;
+    const method = `${prefix}_${type}`;
 
     request(method, [tx]).then((response) =>
       setOutput(JSON.stringify(response))
