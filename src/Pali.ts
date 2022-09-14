@@ -1,29 +1,30 @@
-const { ethereum } = window;
+const { provider, pali } = window;
 
-export const isInstalled = () => ethereum !== undefined;
+const _provider = provider || pali;
+
+export const isInstalled = () => _provider !== undefined;
 
 //* Event listeners
 if (isInstalled()) {
-  ethereum.on('connect', () => console.log('on connect'));
-  ethereum.on('disconnect', () => console.log('on disconnect'));
-  ethereum.on('accountChange', () => console.log('on accountChange'));
-  ethereum.on('chainChange', () => console.log('on chainChange'));
+  _provider.on('connect', () => console.log('on connect'));
+  _provider.on('disconnect', () => console.log('on disconnect'));
+  _provider.on('accountChange', () => console.log('on accountChange'));
+  _provider.on('chainChange', () => console.log('on chainChange'));
 }
 
 //* Default methods
-export const isConnected = async () => ethereum.isConnected();
-export const connect = async () => ethereum.enable();
-export const disconnect = async () => ethereum.disable();
+export const isConnected = async () => _provider.isConnected();
+export const connect = async () => _provider.enable();
+export const disconnect = async () => _provider.disable();
 
 //* Requests
 export const request = async (method: string, args?: any[]) =>
-  ethereum.request({ method, args });
+  _provider.request({ method, args });
 
 export const changeAccount = () => request('wallet_changeAccount');
 
 export const getAccount = () => request('sys_getAccount');
+export const getNetwork = () => request('sys_getNetwork');
 
 export const signTypedDataV4 = (params: any) =>
   request('eth_signTypedData_v4', [params]);
-
-export const getNetwork = () => request('wallet_getNetwork');

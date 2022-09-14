@@ -82,3 +82,28 @@ export const data: { [type: string]: any } = {
     },
   },
 };
+
+export const initialActiveAccountState = {
+  address: '',
+  balances: {
+    ethereum: 0,
+    syscoin: 0,
+  },
+  id: 0,
+  isTrezorWallet: false,
+  label: 'Account 1',
+  xprv: '',
+  xpub: '',
+  transactions: [],
+  assets: [],
+};
+
+export const initialNetworksState = {
+  chainId: 57,
+  label: 'Syscoin Mainnet',
+  url: 'https://blockbook.elint.services/',
+  default: true,
+  currency: 'sys',
+  apiUrl: '',
+  explorer: 'https://blockbook.elint.services/',
+};

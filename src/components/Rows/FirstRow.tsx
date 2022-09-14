@@ -11,13 +11,16 @@ import {
   request,
 } from '../../pali';
 import { data } from '../../data';
+import { useWalletContext } from '../../contexts/wallet';
 
 export const FirstRow = () => {
+  const { providerPrefix } = useWalletContext();
+
   const [output, setOutput] = useState('');
 
   const onSubmit = async (type: string) => {
     const message = data[type];
-    const method = `sys_${type}`;
+    const method = `${providerPrefix}_${type}`;
 
     // note: check the data object first to be aware of why this method would not work if called this way
     request(method, [message]).then((response) => {
