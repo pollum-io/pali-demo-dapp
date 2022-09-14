@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { usePaliMethods } from '../contexts/requests';
 
 import logo from '../assets/images/logo.svg';
 import { useProviderContext } from '../contexts/provider';
 
 export const Header = () => {
-  const { setPrefix, state } = useProviderContext();
+  const [label, setLabel] = useState();
 
-  const { account, network } = state;
+  const { setPrefix, prefix } = useProviderContext();
+  const { state: { account, network } } = usePaliMethods();
 
-  const options = [
-    {
+  const options = {
+    sys: {
       label: 'Provider - Syscoin',
       value: 'sys',
     },
-    {
+    eth: {
       label: 'Provider - Ethereum',
       value: 'eth',
     }
-  ];
+  };
+
+  const stored = window.localStorage.getItem('pali_provider');
+
+  useEffect(() => {
+    if (stored !== options[prefix]) setPrefix(stored)
+    
+    setLabel(options[prefix].label);
+  }, []);
 
   return (
     <div className="flex flex-col md:flex-row justify-center py-10 md:justify-between align-center">
@@ -30,15 +40,17 @@ export const Header = () => {
 
       <div className="grid gap-y-2 py-4 justify-center">
         <div className="w-64 bg-brand-deepPink100 px-4 py-1 rounded-full text-sm font-poppins flex items-center">
-          Connected: {account.label}
+          Connected: {account ? account.label : 'None'}
         </div>
         <div className="w-64 bg-brand-royalblue px-4 py-1 rounded-full text-sm font-poppins flex items-center">
           Chain ID: {network.chainId || ''}
         </div>
 
-        <select onChange={(event) => setPrefix(event.target.value)} className="cursor-pointer w-64 bg-alert-darkwarning px-4 py-1 rounded-full text-sm font-poppins flex items-center">
-          {options.map((option) => (
-            <option key={option.value} defaultValue="sys" value={option.value}>{option.label}</option>
+        <select name="provider" onChange={(event) => setPrefix(event.target.value)} className="cursor-pointer w-64 bg-alert-darkwarning px-4 py-1 rounded-full text-sm font-poppins flex items-center">
+          <label htmlFor="provider">{label}</label>
+
+          {Object.values(options).map((option) => (
+            <option key={option.value} defaultValue={stored} value={option.value}>{option.label}</option>
           ))}
         </select>
       </div>

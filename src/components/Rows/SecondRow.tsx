@@ -8,7 +8,7 @@ import { useProviderContext } from '../../contexts/provider';
 import { usePaliMethods } from '../../contexts/requests';
 
 export const SecondRow = () => {
-  const { state: { prefix } } = useProviderContext();
+  const { prefix } = useProviderContext();
   const { request } = usePaliMethods();
   
   const [output, setOutput] = useState('');

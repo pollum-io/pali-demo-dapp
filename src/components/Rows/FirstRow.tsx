@@ -11,7 +11,7 @@ export const FirstRow = () => {
   const { 
     request,
    } = usePaliMethods();
-  const { state: { prefix } } = useProviderContext();
+  const { prefix } = useProviderContext();
 
   const [output, setOutput] = useState('');
 
