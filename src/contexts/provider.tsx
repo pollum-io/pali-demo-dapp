@@ -16,9 +16,8 @@ export const PaliWalletProvider = ({ children }: { children: any; }) => {
   const network = provider.request({ method: 'wallet_getNetwork', args: [] });
 
   useEffect(() => {
-    const _provider = network.isBitcoinBased ? window.pali : window.ethereum;
+    const _provider = prefix === 'sys' ? window.pali : window.ethereum;
 
-    setPrefix(network.isBitcoinBased ? 'sys' : 'eth');
     setProvider(_provider);
 
     window.localStorage.setItem('pali_provider', prefix);
