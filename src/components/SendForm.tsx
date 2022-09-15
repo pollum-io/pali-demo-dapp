@@ -34,7 +34,7 @@ export const SendForm = () => {
       sender: '',
     };
 
-    request(`${prefix}_send`, [tx]);
+    request(`${prefix}_sendTransaction`, [tx]);
   };
 
   return (
