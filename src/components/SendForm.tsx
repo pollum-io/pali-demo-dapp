@@ -2,35 +2,40 @@ import React, { useEffect } from 'react';
 import { Form, Input } from 'antd';
 
 import QuestionCircleOutlined from '../assets/icons/QuestionCircleOutlined.svg';
-import { request } from '../Pali';
 
 import { SwitchToggle } from './Switch';
 import { PrimaryButton } from './Buttons/Button';
 import { MyDropdown } from './Dropdown';
 import { Tooltip } from './Tooltip';
-
-const onSubmit = (data: any) => {
-  const tx = {
-    amount: Number(data.amount),
-    fee: data.fee,
-    receivingAddress: data.receiver,
-    // sender: '',
-  };
-
-  request('sys_send', [tx]);
-};
+import { usePaliMethods } from '../contexts/requests';
+import { useProviderContext } from '../contexts/provider';
 
 export const SendForm = () => {
+  const { request } = usePaliMethods();
+  const { prefix } = useProviderContext();
+
   const [form] = Form.useForm();
 
   useEffect(() => {
     const estimateFee = async () => {
-      const fee_ = await request('sys_estimateFee');
+      const fee_ = await request('wallet_estimateFee');
+
       form.setFieldsValue({ fee: fee_ });
     };
 
     estimateFee();
   }, []);
+
+  const onSubmit = (data: any) => {
+    const tx = {
+      amount: Number(data.amount),
+      fee: data.fee,
+      receivingAddress: data.receiver,
+      sender: '',
+    };
+
+    request(`${prefix}_sendTransaction`, [tx]);
+  };
 
   return (
     <Form

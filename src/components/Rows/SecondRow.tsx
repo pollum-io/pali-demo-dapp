@@ -3,16 +3,20 @@ import React, { useState } from 'react';
 import { Card } from '../Card';
 import { Output } from '../Output';
 import { PrimaryButton, Input } from '../Buttons/Button';
-import { request } from '../../Pali';
 import { data } from '../../data';
+import { useProviderContext } from '../../contexts/provider';
+import { usePaliMethods } from '../../contexts/requests';
 
 export const SecondRow = () => {
+  const { prefix } = useProviderContext();
+  const { request } = usePaliMethods();
+  
   const [output, setOutput] = useState('');
 
   const onSubmit = (type: string) => {
     const tx = data[type];
 
-    const method = `sys_${type}`;
+    const method = `${prefix}_${type}`;
 
     request(method, [tx]).then((response) =>
       setOutput(JSON.stringify(response))

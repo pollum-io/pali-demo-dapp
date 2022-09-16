@@ -8,7 +8,7 @@ import { ThirdRow } from './Rows/ThirdRow';
 import { FourthRow } from './Rows/FourthRow';
 
 export const Body = () => (
-  <div className="grid md:gap-y-3 flex text-center w-full h-max">
+  <div className="grid md:gap-y-3 text-center w-full h-max">
     <FirstRow />
     <SecondRow />
 

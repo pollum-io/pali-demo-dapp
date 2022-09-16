@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Body } from './components/Body';
 import { Header } from './components/Header';
@@ -7,6 +7,8 @@ import { Footer } from './components/Footer';
 declare global {
   interface Window {
     pali: Readonly<any>;
+    ethereum: Readonly<any>;
+    provider: Readonly<any>;
   }
 }
 
@@ -19,6 +21,6 @@ const App = () => (
 
     <Footer />
   </div>
-);
+)
 
 export default App;
