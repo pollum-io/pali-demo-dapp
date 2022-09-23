@@ -32,6 +32,8 @@ export const SendForm = () => {
       fee: data.fee,
       receivingAddress: data.receiver,
       sender: '',
+      zDag: true,
+      verifyAddress: true,
     };
 
     request(`${prefix}_sendTransaction`, [tx]);
