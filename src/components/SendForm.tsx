@@ -16,16 +16,6 @@ export const SendForm = () => {
 
   const [form] = Form.useForm();
 
-  useEffect(() => {
-    const estimateFee = async () => {
-      const fee_ = await request('wallet_estimateFee');
-
-      form.setFieldsValue({ fee: fee_ });
-    };
-
-    estimateFee();
-  }, []);
-
   const onSubmit = (data: any) => {
     const tx = {
       amount: Number(data.amount),

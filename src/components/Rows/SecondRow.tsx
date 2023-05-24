@@ -14,13 +14,17 @@ export const SecondRow = () => {
   const [output, setOutput] = useState('');
 
   const onSubmit = (type: string) => {
-    const tx = data[type];
+    try {
+      const tx = data[type];
 
-    const method = `${prefix}_${type}`;
+      const method = `${prefix}_${type}`;
 
-    request(method, [tx]).then((response) =>
-      setOutput(JSON.stringify(response))
-    );
+      request(method, [tx]).then((response) =>
+        setOutput(JSON.stringify(response))
+      );
+    } catch (err) {
+      setOutput(JSON.stringify(err));
+    }
   };
 
   return (

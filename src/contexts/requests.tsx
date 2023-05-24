@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { initialNetworksState } from '../data';
 import { useProviderContext } from './provider';
 
@@ -7,31 +7,80 @@ const defaultValue: any = {};
 
 const PaliMethodsContext = createContext(defaultValue);
 
-export const PaliMethodsProvider = ({ children }: { children: any; }) => {
+export const PaliMethodsProvider = ({ children }: { children: any }) => {
   const [account, setAccount] = useState(null);
   const [network, setNetwork] = useState(initialNetworksState);
-
+  const prefix = localStorage.getItem('pali_prefix');
   const { provider } = useProviderContext();
+  const state = prefix === 'sys' ? '_sysState' : '_state';
 
-  const isInstalled = () => provider !== undefined;
+  const isInstalled = provider !== undefined;
+  const isConnectedInDapp =
+    prefix === 'sys'
+      ? provider[state].xpub !== null
+      : provider[state].isConnected;
 
-  const setConnectedAccount = () => getAccount().then((response: any) => setAccount(response));
+  const setupState = async () => {
+    const { isBitcoinBased, isUnlocked } = await provider[state];
 
+    const shouldSwitchNetwork =
+      (isBitcoinBased && prefix === 'eth') ||
+      (!isBitcoinBased && prefix === 'sys');
+
+    switch (shouldSwitchNetwork) {
+      case true:
+        if (account && isUnlocked) {
+          await provider.request({
+            method: `${prefix}_changeUTXOEVM`,
+            params: [{ chainId: 57 }],
+          });
+        }
+        break;
+      case false:
+        if (isUnlocked) {
+          provider
+            .request({ method: 'wallet_getAccount', params: [] })
+            .then((account) => {
+              setAccount(account);
+            });
+        }
+        break;
+    }
+
+    provider
+      .request({ method: 'wallet_getNetwork', params: [] })
+      .then((currentNetwork) => {
+        if (currentNetwork) {
+          if (isUnlocked) {
+            setNetwork(currentNetwork);
+            return;
+          }
+        }
+      });
+  };
   //* Event listeners
-  if (isInstalled()) {
-    provider.on('connect', () => setConnectedAccount());
-    provider.on('disconnect', () => setAccount(null));
-    provider.on('accountChange', () => setConnectedAccount());
-    provider.on('chainChange', () => {
-      getNetwork().then((response: any) => setNetwork(response));
-      setConnectedAccount();
-    });
-  }
+
+  useEffect(() => {
+    if (isInstalled && isConnectedInDapp) {
+      setupState();
+    }
+  }, [prefix, provider]);
 
   //* Default methods
   const isConnected = () => provider.isConnected();
-  const connect = () => provider.enable();
-  const disconnect = () => provider.disable();
+  const connect = async () => {
+    const account = await provider.request({
+      method: `${prefix}_requestAccounts`,
+      params: [],
+    });
+    setupState();
+    return account;
+  };
+  const disconnect = () => {
+    setAccount(null);
+    setNetwork(initialNetworksState);
+    return provider.disable();
+  };
 
   //* Requests
   const request = (method: string, args?: any[]) =>
@@ -54,11 +103,15 @@ export const PaliMethodsProvider = ({ children }: { children: any; }) => {
     getAccount,
     getNetwork,
     signTypedDataV4,
-  }
+  };
 
   return (
-    <PaliMethodsContext.Provider value={{
-      ...methods, state: { account, network } }}>
+    <PaliMethodsContext.Provider
+      value={{
+        ...methods,
+        state: { account, network },
+      }}
+    >
       {children}
     </PaliMethodsContext.Provider>
   );
