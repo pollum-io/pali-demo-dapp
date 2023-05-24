@@ -8,9 +8,7 @@ import { useProviderContext } from '../../contexts/provider';
 import { usePaliMethods } from '../../contexts/requests';
 
 export const FirstRow = () => {
-  const { 
-    request,
-   } = usePaliMethods();
+  const { request } = usePaliMethods();
   const { prefix } = useProviderContext();
 
   const [output, setOutput] = useState('');
@@ -29,14 +27,14 @@ export const FirstRow = () => {
     <div className="bg-bkg-3 md:rounded-md grid lg:grid-cols-3 gap-y-4 lg:gap-y-0 md:gap-x-4 py-5 justify-center align-center w-full h-max">
       <BasicActionsCard />
 
-      <Card title="SIGN ACTIONS">
+      {/* <Card title="SIGN ACTIONS">
         <div className="grid grid-rows-3 gap-y-3 rounded-full">
           <PrimaryButton
             onClick={() => onSubmit('signAndSend')}
             text="Sign PSBT"
             type="button"
           />
-          <PrimaryButton 
+          <PrimaryButton
             onClick={() => onSubmit('getSignedPsbt')}
             text="Get signed PSBT"
             type="button"
@@ -49,23 +47,22 @@ export const FirstRow = () => {
 
           <Output output={output || ' '} />
         </div>
-      </Card>
+      </Card> */}
     </div>
   );
 };
 
 const BasicActionsCard = () => {
-  const {
-    changeAccount,
-    connect,
-    disconnect,
-    getAccount,
-  } = usePaliMethods();
+  const { changeAccount, connect, disconnect, getAccount } = usePaliMethods();
   const [output, setOutput] = useState('');
 
   const handleExecution = async (fn: () => any) => {
-    const data = await fn();
-    setOutput(JSON.stringify(data));
+    try {
+      const data = await fn();
+      setOutput(JSON.stringify(data));
+    } catch (err) {
+      setOutput(JSON.stringify(err));
+    }
   };
 
   return (

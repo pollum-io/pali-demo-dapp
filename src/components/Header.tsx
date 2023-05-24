@@ -6,7 +6,9 @@ import { useProviderContext } from '../contexts/provider';
 
 export const Header = () => {
   const { setPrefix, prefix } = useProviderContext();
-  const { state: { account, network } } = usePaliMethods();
+  const {
+    state: { account, network },
+  } = usePaliMethods();
 
   const options = {
     sys: {
@@ -16,13 +18,13 @@ export const Header = () => {
     eth: {
       label: 'Provider - Ethereum',
       value: 'eth',
-    }
+    },
   };
 
-  const stored = window.localStorage.getItem('pali_provider');
+  const storedPrefix = window.localStorage.getItem('pali_prefix');
 
   useEffect(() => {
-    if (stored !== options[prefix]) setPrefix(stored);
+    if (storedPrefix !== options[prefix]) setPrefix(storedPrefix);
   }, []);
 
   return (
@@ -42,9 +44,19 @@ export const Header = () => {
           Chain ID: {network.chainId || ''}
         </div>
 
-        <select name="provider" onChange={(event) => setPrefix(event.target.value)} className="cursor-pointer w-64 bg-alert-darkwarning px-4 py-1 rounded-full text-sm font-poppins flex items-center">
+        <select
+          name="provider"
+          onChange={(event) => setPrefix(event.target.value)}
+          className="cursor-pointer w-64 bg-alert-darkwarning px-4 py-1 rounded-full text-sm font-poppins flex items-center"
+        >
           {Object.values(options).map((option) => (
-            <option key={option.value} defaultValue={prefix} value={option.value}>{option.label}</option>
+            <option
+              key={option.value}
+              defaultValue={prefix}
+              value={option.value}
+            >
+              {option.label}
+            </option>
           ))}
         </select>
       </div>

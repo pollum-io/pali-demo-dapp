@@ -33,12 +33,18 @@ export const PrimaryButton: React.FC<IButton> = ({
 interface IInput {
   placeholder: string;
   disabled?: boolean;
+  onChange?: (e: any) => void;
 }
 
-export const Input: React.FC<IInput> = ({ disabled = false, placeholder }) => (
+export const Input: React.FC<IInput> = ({
+  disabled = false,
+  placeholder,
+  onChange,
+}) => (
   <input
     className="border border-bkg-4 bg-bkg-6 font-poppins text-left px-4 py-1 rounded-full h-max hover:border-fields-input-borderfocus focus:border-fields-input-borderfocus outline-none"
     disabled={disabled}
     placeholder={placeholder}
+    onChange={onChange}
   />
 );
